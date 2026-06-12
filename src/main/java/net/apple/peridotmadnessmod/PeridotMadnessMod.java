@@ -18,33 +18,33 @@ import net.apple.peridotmadnessmod.item.ModItems;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(PeridotMadnessMod.MOD_ID)
 public final class PeridotMadnessMod {
-    // Define mod id in a common place for everything to reference
-    public static final String MOD_ID = "peridotmadnessmod";
-    // Directly reference a slf4j logger
-    public static final Logger LOGGER = LogUtils.getLogger();
+    public static final String MOD_ID = "peridotmadnessmod"; //unique ID
+    public static final Logger LOGGER = LogUtils.getLogger(); //lets the mod print messages to game log/console
 
 
-    public PeridotMadnessMod(FMLJavaModLoadingContext context) {
-        var modBusGroup = context.getModBusGroup();
+    public PeridotMadnessMod(FMLJavaModLoadingContext context) { //CONSTRUCTOR
+        var modBusGroup = context.getModBusGroup(); //N.B! where events are announced and listeners are called
 
-        FMLCommonSetupEvent.getBus(modBusGroup).addListener(this::commonSetup);
+        FMLCommonSetupEvent.getBus(modBusGroup).addListener(this::commonSetup); //calls my commonSetup method
 
+        //When creative mod tabs are being built, call addCreative
         BuildCreativeModeTabContentsEvent.BUS.addListener(PeridotMadnessMod::addCreative);
 
-        context.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        context.registerConfig(ModConfig.Type.COMMON, Config.SPEC); //registers the mod's config file settings
 
         ModBlocks.register(modBusGroup);
         ModItems.register(modBusGroup);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event) {
+    private void commonSetup(final FMLCommonSetupEvent event) {//PLACEHOLDER
     }
-    private static void addCreative(BuildCreativeModeTabContentsEvent event) {
-        PeridotMadnessMod.LOGGER.info("Creative tab event fired for: {}", event.getTabKey());
 
-        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-            event.accept(ModBlocks.PERIDOT_ORE.get().asItem());
-            PeridotMadnessMod.LOGGER.info("Added peridot ore to natural blocks tab");
+    private static void addCreative(BuildCreativeModeTabContentsEvent event) {
+        //PeridotMadnessMod.LOGGER.info("Creative tab event fired for: {}", event.getTabKey());
+
+        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) { //checks if the tabs is the Natural Blocks tab
+            event.accept(ModBlocks.PERIDOT_ORE.get().asItem()); //if yes, add the block
+           // PeridotMadnessMod.LOGGER.info("Added peridot ore to natural blocks tab");
         }
     }
     @Mod.EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
