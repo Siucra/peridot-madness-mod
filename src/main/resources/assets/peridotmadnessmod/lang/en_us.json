@@ -1,5 +1,9 @@
 {
   "block.peridotmadnessmod.peridot_ore": "Peridot Ore",
+  "block.peridotmadnessmod.block_of_peridot": "Block of Peridot",
+
+
   "item.peridotmadnessmod.peridot_ore": "Peridot Ore",
-  "item.peridotmadnessmod.peridot": "Peridot"
+  "item.peridotmadnessmod.peridot": "Peridot",
+  "item.peridotmadnessmod.block_of_peridot": "Block of Peridot"
 }

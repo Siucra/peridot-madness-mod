@@ -46,6 +46,14 @@ public final class PeridotMadnessMod {
             event.accept(ModBlocks.PERIDOT_ORE.get().asItem()); //if yes, add the block
            // PeridotMadnessMod.LOGGER.info("Added peridot ore to natural blocks tab");
         }
+
+        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.BLOCK_OF_PERIDOT.get().asItem());
+        }
+
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.PERIDOT.get());
+        }
     }
     @Mod.EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
     public static class ClientModEvents {

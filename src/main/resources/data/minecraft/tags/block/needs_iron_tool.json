@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "peridotmadnessmod:peridot_ore"
+    "peridotmadnessmod:peridot_ore",
+    "peridotmadnessmod:block_of_peridot"
   ]
 }
