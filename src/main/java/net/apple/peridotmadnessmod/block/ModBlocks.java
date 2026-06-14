@@ -39,6 +39,9 @@ public class ModBlocks {
                             .requiresCorrectToolForDrops()
             ));
 
+    //public static final RegistryObject<Block> BLOCK_OF_PERIDOT = registerBlock("block_of_peridot",
+       //     () -> new Block(setId))
+
     public static final RegistryObject<Item> PERIDOT_ORE_ITEM =
             ITEMS.register("peridot_ore", () -> new BlockItem(
                     PERIDOT_ORE.get(),

@@ -26,6 +26,14 @@ public class ModItems {
                         ))
         ));
     }
+
+    public static final RegistryObject<Item> PERIDOT = ITEMS.register("peridot",
+            ()-> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(
+                            Registries.ITEM,
+                            Identifier.fromNamespaceAndPath(PeridotMadnessMod.MOD_ID,"peridot")
+                    )))
+            );
     public static void register(BusGroup eventBus) {
         ITEMS.register(eventBus);
     }
