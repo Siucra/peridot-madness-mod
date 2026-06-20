@@ -57,6 +57,10 @@ public final class PeridotMadnessMod {
 
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.PERIDOT_AXE.get());
+            event.accept(ModItems.PERIDOT_PICKAXE.get());
+            event.accept(ModItems.PERIDOT_SHOVEL.get());
+            event.accept(ModItems.PERIDOT_SWORD.get());
+            event.accept(ModItems.PERIDOT_HOE.get());
         }
     }
     @Mod.EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)

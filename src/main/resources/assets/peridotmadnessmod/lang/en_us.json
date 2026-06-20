@@ -5,5 +5,10 @@
   "item.peridotmadnessmod.peridot_ore": "Peridot Ore",
   "item.peridotmadnessmod.peridot": "Peridot",
   "item.peridotmadnessmod.block_of_peridot": "Block of Peridot",
-  "item.peridotmadnessmod.peridot_axe": "Peridot Axe"
+
+  "item.peridotmadnessmod.peridot_axe": "Peridot Axe",
+  "item.peridotmadnessmod.peridot_pickaxe": "Peridot Pickaxe",
+  "item.peridotmadnessmod.peridot_shovel": "Peridot Shovel",
+  "item.peridotmadnessmod.peridot_hoe": "Peridot Hoe",
+  "item.peridotmadnessmod.peridot_sword": "Peridot Sword"
 }

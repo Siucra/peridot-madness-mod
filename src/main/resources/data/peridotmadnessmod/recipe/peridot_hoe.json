@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "tools",
+  "pattern": [
+    " PS",
+    " S",
+    " S"
+  ],
+  "key": {
+    "P": "peridotmadnessmod:peridot",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "peridotmadnessmod:peridot_hoe"
+  }
+}
