@@ -10,5 +10,11 @@
   "item.peridotmadnessmod.peridot_pickaxe": "Peridot Pickaxe",
   "item.peridotmadnessmod.peridot_shovel": "Peridot Shovel",
   "item.peridotmadnessmod.peridot_hoe": "Peridot Hoe",
-  "item.peridotmadnessmod.peridot_sword": "Peridot Sword"
+  "item.peridotmadnessmod.peridot_sword": "Peridot Sword",
+
+  "item.peridotmadnessmod.peridot_helmet": "Peridot Helmet",
+  "item.peridotmadnessmod.peridot_chestplate": "Peridot Chestplate",
+  "item.peridotmadnessmod.peridot_leggings": "Peridot Leggings",
+  "item.peridotmadnessmod.peridot_boots": "Peridot Boots"
+
 }

@@ -14,6 +14,7 @@ import net.minecraftforge.eventbus.api.bus.BusGroup;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.minecraft.world.item.equipment.ArmorType;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -82,6 +83,26 @@ public class ModItems {
                         Identifier.fromNamespaceAndPath(PeridotMadnessMod.MOD_ID, name)
                 ));
     }
+
+    public static final RegistryObject<Item> PERIDOT_HELMET = ITEMS.register("peridot_helmet",
+            () -> new Item(itemProperties("peridot_helmet")
+                    .humanoidArmor(ModArmorMaterials.PERIDOT, ArmorType.HELMET))
+    );
+
+    public static final RegistryObject<Item> PERIDOT_LEGGINGS = ITEMS.register("peridot_leggings",
+            () -> new Item(itemProperties("peridot_leggings")
+                    .humanoidArmor(ModArmorMaterials.PERIDOT, ArmorType.LEGGINGS))
+    );
+
+    public static final RegistryObject<Item> PERIDOT_CHESTPLATE = ITEMS.register("peridot_chestplate",
+            () -> new Item(itemProperties("peridot_chestplate")
+                    .humanoidArmor(ModArmorMaterials.PERIDOT, ArmorType.CHESTPLATE))
+    );
+
+    public static final RegistryObject<Item> PERIDOT_BOOTS = ITEMS.register("peridot_boots",
+            () -> new Item(itemProperties("peridot_boots")
+                    .humanoidArmor(ModArmorMaterials.PERIDOT, ArmorType.BOOTS))
+    );
 
     public static void register(BusGroup eventBus) {
         ITEMS.register(eventBus);
