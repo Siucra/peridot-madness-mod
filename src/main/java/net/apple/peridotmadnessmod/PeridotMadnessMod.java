@@ -61,10 +61,6 @@ public final class PeridotMadnessMod {
             event.accept(ModItems.PERIDOT_SHOVEL.get());
             event.accept(ModItems.PERIDOT_SWORD.get());
             event.accept(ModItems.PERIDOT_HOE.get());
-            event.accept(ModItems.PERIDOT_HELMET.get());
-            event.accept(ModItems.PERIDOT_BOOTS.get());
-            event.accept(ModItems.PERIDOT_CHESTPLATE.get());
-            event.accept(ModItems.PERIDOT_LEGGINGS.get());
         }
 
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {

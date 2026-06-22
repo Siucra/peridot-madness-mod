@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "peridotmadnessmod:peridot"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "peridotmadnessmod:peridot"
+      }
+    ]
+  }
+}

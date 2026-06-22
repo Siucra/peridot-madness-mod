@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "PPP",
+    "PPP",
+    "PPP"
+  ],
+  "key": {
+    "P": "peridotmadnessmod:peridot"
+  },
+  "result": {
+    "id": "peridotmadnessmod:block_of_peridot"
+  }
+}

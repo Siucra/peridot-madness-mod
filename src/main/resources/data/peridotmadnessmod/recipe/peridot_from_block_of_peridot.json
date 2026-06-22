@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "peridotmadnessmod:block_of_peridot"
+  ],
+  "result": {
+    "id": "peridotmadnessmod:peridot",
+    "count": 9
+  }
+}
