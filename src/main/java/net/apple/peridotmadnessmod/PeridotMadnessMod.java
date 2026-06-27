@@ -43,50 +43,58 @@ public final class PeridotMadnessMod {
 
     private static void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-            event.accept(ModBlocks.PERIDOT_ORE.get().asItem());
+            event.getEntries().putAfter(
+                    Items.DEEPSLATE_DIAMOND_ORE.getDefaultInstance(),
+                    ModBlocks.PERIDOT_ORE.get().asItem().getDefaultInstance(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+            );
         }
 
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.getEntries().putAfter(
                     Items.DIAMOND_BLOCK.getDefaultInstance(),
                     ModBlocks.BLOCK_OF_PERIDOT.get().asItem().getDefaultInstance(),
-                    CreativeModeTab.TabVisibility.PARENT_TAB_ONLY
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
             );
         }
 
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(ModItems.PERIDOT.get());
+            event.getEntries().putAfter(
+                    Items.DIAMOND.getDefaultInstance(),
+                    ModItems.PERIDOT.get().asItem().getDefaultInstance(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+            );
         }
 
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            addPeridotToolsAfterDiamondTools(event, CreativeModeTab.TabVisibility.PARENT_TAB_ONLY);
+            addPeridotToolsAfterDiamondTools(event, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
 
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.getEntries().putAfter(
                     Items.DIAMOND_SWORD.getDefaultInstance(),
                     ModItems.PERIDOT_SWORD.get().getDefaultInstance(),
-                    CreativeModeTab.TabVisibility.PARENT_TAB_ONLY
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
             );
 
-            addPeridotArmorAfterDiamondArmor(event, CreativeModeTab.TabVisibility.PARENT_TAB_ONLY);
+            addPeridotArmorAfterDiamondArmor(event, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
 
         if (event.getTabKey() == CreativeModeTabs.SEARCH) {
             event.getEntries().putAfter(
                     Items.DIAMOND_BLOCK.getDefaultInstance(),
                     ModBlocks.BLOCK_OF_PERIDOT.get().asItem().getDefaultInstance(),
-                    CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
             );
 
             event.getEntries().putAfter(
                     Items.DIAMOND_SWORD.getDefaultInstance(),
                     ModItems.PERIDOT_SWORD.get().getDefaultInstance(),
-                    CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
             );
 
-            addPeridotToolsAfterDiamondTools(event, CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY);
-            addPeridotArmorAfterDiamondArmor(event, CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY);
+            addPeridotToolsAfterDiamondTools(event, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            addPeridotArmorAfterDiamondArmor(event, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
     }
 
