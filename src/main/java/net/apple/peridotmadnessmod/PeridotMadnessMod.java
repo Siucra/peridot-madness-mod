@@ -2,7 +2,9 @@ package net.apple.peridotmadnessmod;
 
 import com.mojang.logging.LogUtils;
 import net.apple.peridotmadnessmod.block.ModBlocks;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
@@ -40,15 +42,16 @@ public final class PeridotMadnessMod {
     }
 
     private static void addCreative(BuildCreativeModeTabContentsEvent event) {
-        //PeridotMadnessMod.LOGGER.info("Creative tab event fired for: {}", event.getTabKey());
-
-        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) { //checks if the tabs is the Natural Blocks tab
-            event.accept(ModBlocks.PERIDOT_ORE.get().asItem()); //if yes, add the block
-           // PeridotMadnessMod.LOGGER.info("Added peridot ore to natural blocks tab");
+        if (event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
+            event.accept(ModBlocks.PERIDOT_ORE.get().asItem());
         }
 
         if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.BLOCK_OF_PERIDOT.get().asItem());
+            event.getEntries().putAfter(
+                    Items.DIAMOND_BLOCK.getDefaultInstance(),
+                    ModBlocks.BLOCK_OF_PERIDOT.get().asItem().getDefaultInstance(),
+                    CreativeModeTab.TabVisibility.PARENT_TAB_ONLY
+            );
         }
 
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
@@ -56,26 +59,95 @@ public final class PeridotMadnessMod {
         }
 
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(ModItems.PERIDOT_AXE.get());
-            event.accept(ModItems.PERIDOT_PICKAXE.get());
-            event.accept(ModItems.PERIDOT_SHOVEL.get());
-            event.accept(ModItems.PERIDOT_SWORD.get());
-            event.accept(ModItems.PERIDOT_HOE.get());
+            addPeridotToolsAfterDiamondTools(event, CreativeModeTab.TabVisibility.PARENT_TAB_ONLY);
         }
 
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
-            event.accept(ModItems.PERIDOT_AXE.get());
-            event.accept(ModItems.PERIDOT_PICKAXE.get());
-            event.accept(ModItems.PERIDOT_SHOVEL.get());
-            event.accept(ModItems.PERIDOT_SWORD.get());
-            event.accept(ModItems.PERIDOT_HOE.get());
-            event.accept(ModItems.PERIDOT_HELMET.get());
-            event.accept(ModItems.PERIDOT_BOOTS.get());
-            event.accept(ModItems.PERIDOT_CHESTPLATE.get());
-            event.accept(ModItems.PERIDOT_LEGGINGS.get());
+            event.getEntries().putAfter(
+                    Items.DIAMOND_SWORD.getDefaultInstance(),
+                    ModItems.PERIDOT_SWORD.get().getDefaultInstance(),
+                    CreativeModeTab.TabVisibility.PARENT_TAB_ONLY
+            );
+
+            addPeridotArmorAfterDiamondArmor(event, CreativeModeTab.TabVisibility.PARENT_TAB_ONLY);
         }
 
+        if (event.getTabKey() == CreativeModeTabs.SEARCH) {
+            event.getEntries().putAfter(
+                    Items.DIAMOND_BLOCK.getDefaultInstance(),
+                    ModBlocks.BLOCK_OF_PERIDOT.get().asItem().getDefaultInstance(),
+                    CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY
+            );
+
+            event.getEntries().putAfter(
+                    Items.DIAMOND_SWORD.getDefaultInstance(),
+                    ModItems.PERIDOT_SWORD.get().getDefaultInstance(),
+                    CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY
+            );
+
+            addPeridotToolsAfterDiamondTools(event, CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY);
+            addPeridotArmorAfterDiamondArmor(event, CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY);
+        }
     }
+
+    private static void addPeridotToolsAfterDiamondTools(
+            BuildCreativeModeTabContentsEvent event,
+            CreativeModeTab.TabVisibility visibility
+    ) {
+        event.getEntries().putAfter(
+                Items.DIAMOND_HOE.getDefaultInstance(),
+                ModItems.PERIDOT_SHOVEL.get().getDefaultInstance(),
+                visibility
+        );
+
+        event.getEntries().putAfter(
+                ModItems.PERIDOT_SHOVEL.get().getDefaultInstance(),
+                ModItems.PERIDOT_PICKAXE.get().getDefaultInstance(),
+                visibility
+        );
+
+        event.getEntries().putAfter(
+                ModItems.PERIDOT_PICKAXE.get().getDefaultInstance(),
+                ModItems.PERIDOT_AXE.get().getDefaultInstance(),
+                visibility
+        );
+
+        event.getEntries().putAfter(
+                ModItems.PERIDOT_AXE.get().getDefaultInstance(),
+                ModItems.PERIDOT_HOE.get().getDefaultInstance(),
+                visibility
+        );
+    }
+
+    private static void addPeridotArmorAfterDiamondArmor(
+            BuildCreativeModeTabContentsEvent event,
+            CreativeModeTab.TabVisibility visibility
+    ) {
+        event.getEntries().putAfter(
+                Items.DIAMOND_BOOTS.getDefaultInstance(),
+                ModItems.PERIDOT_HELMET.get().getDefaultInstance(),
+                visibility
+        );
+
+        event.getEntries().putAfter(
+                ModItems.PERIDOT_HELMET.get().getDefaultInstance(),
+                ModItems.PERIDOT_CHESTPLATE.get().getDefaultInstance(),
+                visibility
+        );
+
+        event.getEntries().putAfter(
+                ModItems.PERIDOT_CHESTPLATE.get().getDefaultInstance(),
+                ModItems.PERIDOT_LEGGINGS.get().getDefaultInstance(),
+                visibility
+        );
+
+        event.getEntries().putAfter(
+                ModItems.PERIDOT_LEGGINGS.get().getDefaultInstance(),
+                ModItems.PERIDOT_BOOTS.get().getDefaultInstance(),
+                visibility
+        );
+    }
+
     @Mod.EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
     public static class ClientModEvents {
         @SubscribeEvent
