@@ -68,12 +68,21 @@ public final class PeridotMadnessMod {
 
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             addPeridotToolsAfterDiamondTools(event, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.accept(
+                    ModItems.PERIDOT_HORSE_ARMOR.get().getDefaultInstance(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+            );
+
         }
 
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
             event.getEntries().putAfter(
                     Items.DIAMOND_SWORD.getDefaultInstance(),
                     ModItems.PERIDOT_SWORD.get().getDefaultInstance(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+            );
+            event.accept(
+                    ModItems.PERIDOT_HORSE_ARMOR.get().getDefaultInstance(),
                     CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
             );
 
@@ -90,6 +99,10 @@ public final class PeridotMadnessMod {
             event.getEntries().putAfter(
                     Items.DIAMOND_SWORD.getDefaultInstance(),
                     ModItems.PERIDOT_SWORD.get().getDefaultInstance(),
+                    CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
+            );
+            event.accept(
+                    ModItems.PERIDOT_HORSE_ARMOR.get().getDefaultInstance(),
                     CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS
             );
 
@@ -164,3 +177,4 @@ public final class PeridotMadnessMod {
         }
     }
 }
+

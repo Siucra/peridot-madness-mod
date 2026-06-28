@@ -104,7 +104,13 @@ public class ModItems {
                     .humanoidArmor(ModArmorMaterials.PERIDOT, ArmorType.BOOTS))
     );
 
+    public static final RegistryObject<Item> PERIDOT_HORSE_ARMOR = ITEMS.register("peridot_horse_armor",
+            () -> new Item(itemProperties("peridot_horse_armor")
+                    .horseArmor(ModArmorMaterials.PERIDOT))
+    );
+
     public static void register(BusGroup eventBus) {
         ITEMS.register(eventBus);
     }
 }
+
