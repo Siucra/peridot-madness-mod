@@ -9,6 +9,11 @@
       {
         "texture": "peridotmadnessmod:peridot"
       }
+    ],
+    "horse_body": [
+      {
+        "texture": "peridotmadnessmod:peridot"
+      }
     ]
   }
 }
