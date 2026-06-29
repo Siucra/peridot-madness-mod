@@ -2,7 +2,7 @@ package net.apple.peridotmadnessmod;
 
 import com.mojang.logging.LogUtils;
 import net.apple.peridotmadnessmod.block.ModBlocks;
-import net.apple.peridotmadnessmod.item.ModMobEquipmentEvents;
+import net.apple.peridotmadnessmod.Events.ModMobEquipmentEvents;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
