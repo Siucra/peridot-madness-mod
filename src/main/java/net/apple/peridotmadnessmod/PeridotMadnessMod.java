@@ -2,11 +2,13 @@ package net.apple.peridotmadnessmod;
 
 import com.mojang.logging.LogUtils;
 import net.apple.peridotmadnessmod.block.ModBlocks;
+import net.apple.peridotmadnessmod.item.ModMobEquipmentEvents;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -33,6 +35,7 @@ public final class PeridotMadnessMod {
         BuildCreativeModeTabContentsEvent.BUS.addListener(PeridotMadnessMod::addCreative);
 
         context.registerConfig(ModConfig.Type.COMMON, Config.SPEC); //registers the mod's config file settings
+        EntityJoinLevelEvent.BUS.addListener(ModMobEquipmentEvents::onEntityJoinLevel);
 
         ModBlocks.register(modBusGroup);
         ModItems.register(modBusGroup);
@@ -177,4 +180,5 @@ public final class PeridotMadnessMod {
         }
     }
 }
+
 
